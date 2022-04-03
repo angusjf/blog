@@ -1,0 +1,14 @@
+{
+    "title": "Learn Chinese & Japanese Characters",
+    "summary": "A tiny quiz web app for Hanzi/Kanji, written in Elm.",
+    "urls": [
+        {
+            "href": "/apps/hanzi.html",
+            "label": "/hanzi",
+            "icon": "fas fa-trophy"
+        }
+    ],
+    "img_url": "images/hanzi.png",
+    "img_alt": "Chinese Character",
+    "date": "2020-07-27"
+}

@@ -38,6 +38,9 @@ head static =
     --, <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     , Head.metaName "msapplication-TileColor" (Head.raw "#da532c")
     , Head.metaName "theme-color" (Head.raw "#ffffff")
+
+    -- , Head.link <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/default.min.css">
+    -- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script>
     ]
 
 

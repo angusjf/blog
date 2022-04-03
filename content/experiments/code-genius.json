@@ -1,0 +1,14 @@
+{
+    "title": "Code Genius",
+    "summary": "A Rap Genius inspired website for people learning to code.",
+    "urls": [
+        {
+            "href": "/apps/code-genius.html",
+            "label": "/code-genius",
+            "icon": "fas fa-code"
+        }
+    ],
+    "img_url": "images/code-genius.png",
+    "img_alt": "Code Genius",
+    "date": "2020-09-09"
+}

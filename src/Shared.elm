@@ -1,14 +1,17 @@
 module Shared exposing (Data, Model, Msg(..), SharedMsg(..), template)
 
 import Browser.Navigation
+import Components exposing (wrapper)
 import DataSource
-import Html exposing (Html)
-import Html.Attributes exposing (style)
+import Html as UntypedHtml
+import Html.Styled as Html exposing (Html, div)
+import Html.Styled.Attributes as Attr exposing (css)
 import Pages.Flags
 import Pages.PageUrl exposing (PageUrl)
 import Path exposing (Path)
 import Route exposing (Route)
 import SharedTemplate exposing (SharedTemplate)
+import Tailwind.Utilities as Tw
 import View exposing (View)
 
 
@@ -85,14 +88,6 @@ data =
     DataSource.succeed ()
 
 
-wrapper =
-    Html.div
-        [ style "width" "40rem"
-        , style "font-family" "sans-serif"
-        , style "margin" "2rem auto"
-        ]
-
-
 view :
     Data
     ->
@@ -102,8 +97,8 @@ view :
     -> Model
     -> (Msg -> msg)
     -> View msg
-    -> { body : Html msg, title : String }
+    -> { body : UntypedHtml.Html msg, title : String }
 view sharedData page model toMsg pageView =
-    { body = wrapper pageView.body
-    , title = pageView.title
+    { title = pageView.title
+    , body = UntypedHtml.div [] [ Html.toUnstyled <| wrapper pageView.body ]
     }

@@ -1,0 +1,19 @@
+{
+    "title": "Vimle",
+    "summary": "Wordle for vim fans.",
+    "urls": [
+        {
+            "href": "/apps/vimle.html",
+            "label": "/vimle",
+            "icon": "fas fa-code"
+        },
+        {
+            "href": "https://github.com/angusjf/vimle",
+            "label": "angusjf/vimle",
+            "icon": "fab fa-github"
+        }
+    ],
+    "img_url": "images/vimle.png",
+    "img_alt": "Vimle",
+    "date": "2022-03-18"
+}

@@ -1,0 +1,19 @@
+{
+    "title": "Songscore",
+    "summary": "A music reviewing platform, built with Elm & Elixir.",
+    "urls": [
+        {
+            "href": "https://songscore.herokuapp.com/",
+            "label": "songscore.herokuapp.com",
+            "icon": "fas fa-star"
+        },
+        {
+            "href": "https://github.com/angusjf/songscore",
+            "label": "angusjf/songscore",
+            "icon": "fab fa-github"
+        }
+    ],
+    "img_url": "images/beta.png",
+    "img_alt": "Songscore landing page",
+    "date": "2017-07-16"
+}

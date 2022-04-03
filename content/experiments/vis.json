@@ -1,0 +1,14 @@
+{
+    "title": "Visualise Java Projects in Visual Studio Code",
+    "summary": "A Visual Studio code extension to make large Java codebases more accessible.",
+    "urls": [
+        {
+            "href": "https://marketplace.visualstudio.com/items?itemName=angusjf.visualise",
+            "label": "Visual Studio Marketplace",
+            "icon": "fas fa-project-diagram"
+        }
+    ],
+    "img_url": "images/visualiser.png",
+    "img_alt": "Java Visualiser Extension",
+    "date": "2020-12-06"
+}

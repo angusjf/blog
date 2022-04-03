@@ -1,0 +1,19 @@
+{
+    "title": "HyperGlitch",
+    "summary": "Some small programs for intentional aesthetic image-glitching, written in Haskell & Elm.",
+    "urls": [
+        {
+            "href": "/apps/glitch.html",
+            "label": "/glitch",
+            "icon": "fas fa-bolt"
+        },
+        {
+            "href": "https://github.com/angusjf/hyperglitch",
+            "label": "angusjf/hyperglitch",
+            "icon": "fab fa-github"
+        }
+    ],
+    "img_url": "images/cy.png",
+    "img_alt": "A Cy Twombly painting, pixel sorted",
+    "date": "2019-12-09"
+}
