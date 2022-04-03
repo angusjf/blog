@@ -4,6 +4,7 @@ import Css exposing (color)
 import Date
 import Html.Styled exposing (a, div, h1, i, img, span, text)
 import Html.Styled.Attributes as Attrs exposing (class, css, href, src)
+import Tailwind.Breakpoints exposing (md, sm)
 import Tailwind.Utilities as Tw
 
 
@@ -11,13 +12,15 @@ wrapper children =
     div
         [ css
             [ Tw.font_sans
+            , Tw.px_8
+            , Tw.bg_off_white
             ]
         ]
         [ div
             [ css
                 [ Tw.mx_auto
                 , Tw.max_w_2xl
-                , Tw.my_12
+                , Tw.py_12
                 ]
             ]
             children
@@ -32,21 +35,24 @@ viewCard { imgUrl, title, content, linksTo } =
     div
         [ css
             [ Tw.rounded_lg
-            , Tw.mx_6
+            , Tw.mx_auto
             , Tw.my_auto
             , Tw.px_8
             , Tw.pb_8
             , Tw.pt_3
             , Tw.bg_white
             , Tw.text_black
-            , Tw.max_w_xl
+            , Tw.max_w_sm
+            , sm [ Tw.max_w_xl ]
             , Tw.shadow_xl
             , Tw.mb_14
             ]
         ]
         [ div
-            [ css [ Tw.flex, Tw.flex_row, Tw.items_center, Tw.justify_between ] ]
-            [ div
+            [ css [ sm [ Tw.flex, Tw.flex_row_reverse, Tw.items_center, Tw.justify_between ] ] ]
+            [ div [ css [ Tw.justify_center, Tw.flex, Tw.pt_5, sm [ Tw.ml_5 ] ] ]
+                [ roundedImage { url = imgUrl, title = Nothing, alt = title } ]
+            , div
                 []
                 [ h1 [] <|
                     case linksTo of
@@ -57,14 +63,12 @@ viewCard { imgUrl, title, content, linksTo } =
                             [ link { url = url, label = [ text title ] } ]
                 , div [] content
                 ]
-            , div [ css [ Tw.ml_5, Tw.flex, Tw.pt_5 ] ]
-                [ roundedImage { url = imgUrl, title = Nothing, alt = title } ]
             ]
         ]
 
 
 viewDescription x =
-    [ span [ css [ Tw.text_gray_500 ] ] x ]
+    [ span [ css [ Tw.text_grey ] ] x ]
 
 
 header =
@@ -97,13 +101,13 @@ image { url, alt } =
         , Attrs.alt alt
 
         --, Attr.title title TODO
-        , css [ Tw.max_h_32, Tw.object_cover ]
+        , css [ Tw.w_full, Tw.object_cover ]
         ]
         []
 
 
 date x =
-    div [ css [ Tw.text_gray_400, Tw.mt_5 ] ] [ text (Date.format "ddd MMM y" x) ]
+    div [ css [ Tw.text_grey, Tw.mt_5 ] ] [ text (Date.format "ddd MMM y" x) ]
 
 
 viewLinks =

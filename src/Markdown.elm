@@ -2,13 +2,13 @@ module Markdown exposing (viewMarkdown)
 
 import Components exposing (image, link)
 import Html.Styled as Html exposing (Html)
-import Html.Styled.Attributes as Attr exposing (css)
+import Html.Styled.Attributes as Attr
 import Markdown.Block as Block
 import Markdown.Html
 import Markdown.Parser
 import Markdown.Renderer
 import MimeType exposing (MimeImage(..))
-import Tailwind.Utilities as Tw
+import SyntaxHighlight exposing (elm, gitHub, javascript, monokai, toBlockHtml, useTheme)
 
 
 customRenderer : Markdown.Renderer.Renderer (Html msg)
@@ -111,19 +111,25 @@ customRenderer =
     , codeBlock =
         \{ body, language } ->
             let
-                classes =
-                    -- Only the first word is used in the class
+                lang =
                     case Maybe.map String.words language of
-                        Just (actualLanguage :: _) ->
-                            [ Attr.class <| "language-" ++ actualLanguage ]
+                        Just ("elm" :: _) ->
+                            elm
+
+                        Just ("javascript" :: _) ->
+                            javascript
 
                         _ ->
-                            []
+                            javascript
             in
-            Html.pre []
-                [ Html.code classes
-                    [ Html.text body
-                    ]
+            Html.div
+                []
+                [ useTheme gitHub |> Html.fromUnstyled
+                , lang body
+                    |> Result.map (toBlockHtml Nothing)
+                    |> Result.map Html.fromUnstyled
+                    |> Result.withDefault
+                        (Html.pre [] [ Html.code [] [ Html.text body ] ])
                 ]
     , thematicBreak = Html.hr [] []
     , table = Html.table []

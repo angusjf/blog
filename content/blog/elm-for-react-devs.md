@@ -1,6 +1,6 @@
 ---
 title: "Intro to Elm for React Developers"
-img_url: /images/elm.png
+img_url: images/elm.webp
 img_alt: The Elm logo
 date: "2021-10-25"
 seo_description: "An introduction to the Elm functional programming language for frontend web developers familiar with React, JavaScript and TypeScript"
@@ -30,11 +30,11 @@ The history of programming language adoption shows us that what's popular isn't 
 
 To help developers familiar with React get to grips with the syntax, I've written the same application in Elm and React, a counter with an increment and decrement button (I've excluded a bit of boilerplate code and import statements from both to simplify things). The page looks like this:
 
-![The counter application](/images/counter.png)
+![The counter application](/images/counter.webp)
 
 ### _JavaScript:_
 
-```JavaScript
+```javascript
 const App = () => {
   const [count, setCount] = useState(0);
 

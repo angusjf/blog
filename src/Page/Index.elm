@@ -1,18 +1,16 @@
 module Page.Index exposing (Data, Model, Msg, page)
 
-import Components exposing (date, link, viewCard, viewDescription, viewLinkWithIcon, viewLinks)
-import Css exposing (color)
+import Components exposing (date, viewCard, viewDescription, viewLinks)
 import DataSource exposing (DataSource)
 import DataSource.File
 import DataSource.Glob as Glob
-import Date exposing (Date, toRataDie)
+import Date exposing (toRataDie)
 import Head
 import Head.Seo as Seo
-import Html.Styled exposing (a, canvas, code, div, h1, i, iframe, img, p, span, text)
-import Html.Styled.Attributes exposing (class, css, href, id, src)
+import Html.Styled exposing (div, p, text)
 import Markdown exposing (viewMarkdown)
 import Metadata exposing (BlogMetadata, ExperimentMetadata, frontmatterDecoder, jsonDecoder)
-import OptimizedDecoder
+import MimeType exposing (MimeImage(..))
 import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
 import Pages.Url
@@ -39,11 +37,6 @@ page =
         , data = data
         }
         |> Page.buildNoState { view = view }
-
-
-type Path
-    = BlogPath
-    | ExperimentPath
 
 
 blogs =
@@ -118,22 +111,30 @@ datePublished x =
         |> negate
 
 
+title =
+    "Angus Findlay's Blog - angusjf"
+
+
+description =
+    "Angus Findlay's (angusjf) Blog - Experiments in Code, Functional Programming, Art and Language."
+
+
 head :
     StaticPayload Data RouteParams
     -> List Head.Tag
-head static =
+head _ =
     Seo.summary
         { canonicalUrlOverride = Nothing
-        , siteName = "Angus Findlay's Blog"
+        , siteName = title
         , image =
-            { url = Pages.Url.external "www.angusjf.com"
-            , alt = "TODO"
+            { url = Pages.Url.external "https://angusjf.com/images/portrait.jpg"
+            , alt = "Angus Findlay"
             , dimensions = Nothing
-            , mimeType = Nothing
+            , mimeType = Just "image/jpeg"
             }
-        , description = "TODO"
-        , locale = Nothing
-        , title = "TODO title" -- metadata.title -- TODO
+        , description = description
+        , locale = Just "en_GB"
+        , title = title
         }
         |> Seo.website
 
@@ -152,7 +153,7 @@ view :
     -> Shared.Model
     -> StaticPayload Data RouteParams
     -> View Msg
-view maybeUrl sharedModel static =
+view _ _ static =
     { title = "Angus Findlay"
     , body =
         me

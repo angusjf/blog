@@ -100,5 +100,5 @@ view :
     -> { body : UntypedHtml.Html msg, title : String }
 view sharedData page model toMsg pageView =
     { title = pageView.title
-    , body = UntypedHtml.div [] [ Html.toUnstyled <| wrapper pageView.body ]
+    , body = Html.toUnstyled <| wrapper pageView.body
     }

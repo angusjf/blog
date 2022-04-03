@@ -1,6 +1,6 @@
 ---
 title: "How to Uninstall VS Code"
-img_url: how.png
+img_url: images/how.png
 img_alt: "Visual Studio Code being replaced with Neovim"
 date: "2022-03-25"
 seo_description: "How I Replaced VS Code with NeoVim (for JS Development)"

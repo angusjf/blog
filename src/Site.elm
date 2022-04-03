@@ -31,6 +31,7 @@ data =
 head : Data -> List Head.Tag
 head static =
     [ Head.sitemapLink "/sitemap.xml"
+    , Head.icon [] Png (Pages.Url.fromPath <| Path.fromString "/favicon.png")
     , Head.icon [ ( 16, 16 ) ] Png (Pages.Url.fromPath <| Path.fromString "/favicon-16x16.png")
     , Head.icon [ ( 32, 32 ) ] Png (Pages.Url.fromPath <| Path.fromString "/favicon-32x32.png")
     , Head.appleTouchIcon (Just 180) (Pages.Url.fromPath <| Path.fromString "/apple-touch-icon.png")
