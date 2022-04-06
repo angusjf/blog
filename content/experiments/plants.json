@@ -1,0 +1,14 @@
+{
+    "title": "Functional Plants",
+    "summary": "Experimenting with functional programming & data structures to create live animations of plant growth.",
+    "urls": [
+        {
+            "href": "https://github.com/angusjf/plants",
+            "label": "angusjf/plants",
+            "icon": "fas fa-seedling"
+        }
+    ],
+    "img_url": "images/plants.webp",
+    "img_alt": "Algorithmically generated plants",
+    "date": "2019-06-25"
+}

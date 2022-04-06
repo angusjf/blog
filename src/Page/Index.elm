@@ -7,7 +7,8 @@ import DataSource.Glob as Glob
 import Date exposing (toRataDie)
 import Head
 import Head.Seo as Seo
-import Html.Styled exposing (div, p, text)
+import Html.Styled exposing (div, p, pre, text)
+import Html.Styled.Attributes exposing (css)
 import Markdown exposing (viewMarkdown)
 import Metadata exposing (BlogMetadata, ExperimentMetadata, frontmatterDecoder, jsonDecoder)
 import MimeType exposing (MimeImage(..))
@@ -15,6 +16,8 @@ import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
 import Pages.Url
 import Shared
+import Tailwind.Utilities as Tw
+import Tree exposing (Tree(..))
 import View exposing (View)
 
 
@@ -37,6 +40,74 @@ page =
         , data = data
         }
         |> Page.buildNoState { view = view }
+
+
+evil :
+    Maybe PageUrl
+    -> Shared.Model
+    -> StaticPayload Data RouteParams
+    -> View Msg
+evil _ _ static =
+    { title = "angusjf"
+    , body = [ pre [ css [ Tw.font_mono ] ] <| Markdown.viewMarkdown <| Tree.render (toTree static.data) ]
+    }
+
+
+toTree : Data -> Tree
+toTree dat =
+    Collection
+        { label = "angusjf"
+        , items =
+            [ Collection
+                { label = "blog"
+                , items =
+                    List.filterMap
+                        (\d ->
+                            case d of
+                                Blog { url, metadata } ->
+                                    Just <|
+                                        Link
+                                            { label = metadata.title
+                                            , url = url
+                                            }
+
+                                Experiment _ ->
+                                    Nothing
+                        )
+                        dat
+                }
+            , Collection
+                { label = "experiments"
+                , items =
+                    List.filterMap
+                        (\d ->
+                            case d of
+                                Blog _ ->
+                                    Nothing
+
+                                Experiment { metadata } ->
+                                    Just <|
+                                        Collection
+                                            { label = metadata.title
+                                            , items =
+                                                List.map
+                                                    (\link ->
+                                                        Link
+                                                            { label = link.label
+                                                            , url = link.url
+                                                            }
+                                                    )
+                                                    metadata.urls
+                                            }
+                        )
+                        dat
+                }
+            ]
+        }
+
+
+
+----
 
 
 blogs =
