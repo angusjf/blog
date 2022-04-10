@@ -18,30 +18,41 @@ draw n tree =
             s n ++ "[" ++ label ++ "]" ++ "(" ++ url ++ ")" ++ "\n"
 
         Collection { items, label } ->
-            let
-                ( head, tail ) =
-                    runcons items
+            case runcons items of
+                Just ( init, last ) ->
+                    let
+                        children =
+                            String.concat
+                                (List.map (draw (False :: n)) init
+                                    ++ [ draw (True :: n) last ]
+                                )
+                    in
+                    s n ++ label ++ "\n" ++ children
 
-                children =
-                    tail
-                        |> List.map (draw (n ++ [ False ]))
-                        |> (\x -> x ++ [ draw (n ++ [ True ]) head ])
-                        |> String.concat
-            in
-            s n ++ label ++ "\n" ++ children
+                Nothing ->
+                    ""
 
 
-runcons list =
-    case List.reverse list of
+runcons : List a -> Maybe ( List a, a )
+runcons l =
+    case l of
+        [ x ] ->
+            Just ( [], x )
+
         x :: xs ->
-            ( x, List.reverse xs )
+            case runcons xs of
+                Just ( ys, y ) ->
+                    Just ( y :: ys, x )
 
-        _ ->
-            Debug.todo ""
+                Nothing ->
+                    Just ( [], x )
+
+        [] ->
+            Nothing
 
 
 s n =
-    case List.reverse n of
+    case n of
         [] ->
             ""
 
