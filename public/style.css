@@ -24,3 +24,7 @@ pre.elmsh * {
   font-family: "Fira Mono", monospace;
   font-size: 14px;
 }
+
+.elmsh {
+    background-color: #f7faf7 !important;
+}

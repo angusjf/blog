@@ -1,6 +1,6 @@
 module Markdown exposing (viewMarkdown)
 
-import Components exposing (image, link)
+import Components exposing (codeSpan, image, link)
 import Html.Styled as Html exposing (Html)
 import Html.Styled.Attributes as Attr
 import Markdown.Block as Block
@@ -42,8 +42,7 @@ customRenderer =
         \children -> Html.em [] children
     , strikethrough =
         \children -> Html.del [] children
-    , codeSpan =
-        \content -> Html.code [] [ Html.text content ]
+    , codeSpan = codeSpan
     , link =
         \{ title, destination } content ->
             case title of

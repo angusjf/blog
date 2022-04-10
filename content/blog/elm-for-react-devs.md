@@ -53,7 +53,7 @@ const App = () => {
 
 ### _Elm:_
 
-```haskell
+```elm
 type Msg = Increment | Decrement
 
 init = { count = 0 }
@@ -101,7 +101,7 @@ A stricter type system can seem like a limitation, as an example, where React le
 
 In Elm, types can usually be inferred from the code you write, so you almost never need to write type annotations to reap the rewards of type safety. However, they are often considered good practice as they can make the code more readable and help the compiler show better error messages. So, for the sake of interest, here is the above program with type annotations:
 
-```haskell
+```elm
 type Msg = Increment | Decrement
 
 type alias Model = { count : Int }

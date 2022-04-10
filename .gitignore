@@ -1,1 +1,13 @@
-.DS_STORE
+.DS_Store
+.elm-pages
+
+package.json
+package-lock.json
+
+elm-tooling.json
+
+node_modules
+elm-stuff
+dist
+
+gen

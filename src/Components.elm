@@ -116,3 +116,7 @@ viewLinks =
 
 viewLinkWithIcon { label, url, icon } =
     div [ css [ Tw.mt_2 ] ] [ link { label = [ span [ css [ Tw.pr_2 ] ] [ i [ class icon ] [] ], text label ], url = url } ]
+
+
+codeSpan t =
+    span [ css [ Tw.font_mono, Tw.italic, Tw.bg_off_white ] ] [ text t ]
