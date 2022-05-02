@@ -3,12 +3,12 @@ title: "How to Uninstall VS Code"
 img_url: images/vim.webp
 img_alt: "Visual Studio Code being replaced with Neovim"
 date: "2022-03-25"
-seo_description: "How I Replaced VS Code with NeoVim (for JS Development)"
+seo_description: "How I Replaced VS Code with Neovim (for JS Development)"
 tags: ["neovim", "vscode", "vim"]
 summary: How to replace Visual Studio Code with Neovim.
 hidden: false
 ---
-![VS Code to Vim](images/uninstall.webp)
+![VS Code to Vim](/images/uninstall.webp)
 
 # How to Uninstall Visual Studio Code
 
@@ -18,7 +18,7 @@ I've spent most of this year trying to convince my colleagues to ditch the wildl
 
 I'm personally convinced that it's how humans and machines were meant to communicate - but for most people that doesn't seem to cut it. I won't persuade anyone to use Vim unless it'll give them all the modern developer luxuries Visual Studio Code has spoiled them with. So I'll explain how to match all those features, without any of the Electron, Microsoft™ or reaching for the mouse.
 
-*Note that when I say Vim, I mean [Neovim](https://neovim.io), which I use nowadays - mostly for the LSP integration, which talk about further down.*
+*Note that when I say Vim, I mean [Neovim](https://neovim.io), which I use nowadays - mostly for the LSP integration, which I will talk about further down.*
 
 ## Plugins, or How I Learned to Stop Worrying and Love the Bloat
 
@@ -67,7 +67,7 @@ The Git integration you thought you couldn't live without in vscode can be surpa
 
 In vscode, I would often use this sidebar just to swap between the files I had changes in. For this simple case, I use `Telescope`.
 
-![Telescope Status](images/vim/telescope-status.png)
+![Telescope Status](/images/vim/telescope-status.png)
 
 ```
 :Telescope :git_status
@@ -76,12 +76,12 @@ In vscode, I would often use this sidebar just to swap between the files I had c
 I find I use this enough rebind it to the space bar. 
 
 However, I also used the VS Code git sidebar to visually stage, unstage and commit files.
-![Fugitive Status](images/vim/status.png)
+![Fugitive Status](/images/vim/status.png)
 This can be done with the fugitive summary (opened with `:G`), where you can use `s` to stage and `cc` to commit.
 
 ### Git Diff
 
-![Fugitive Diff](images/vim/diff.png)
+![Fugitive Diff](/images/vim/diff.png)
 
 In VS Code, clicking a file in the git sidebar opens a diff. In the fugitive summary (`:G`), hit `dd` (or use the command `:Gdiffsplit` from any tracked file) to open diff like the one above.
 
@@ -102,13 +102,13 @@ lua lspconfig.cssls.setup{}
 lua lspconfig.eslint.setup{}
 ```
 
-![Errors](images/vim/errors.png)
+![Errors](/images/vim/errors.png)
 
 As you can see above, errors detected by the Language Server will appear automatically. To see which language servers are active for your current buffer, you can run `:LspInfo`.
 
 ### Type Detection
 
-![Type Hints on Hover](images/vim/types.png)
+![Type Hints on Hover](/images/vim/types.png)
 
 Hovering over an expression to find its type is a very useful feature of VS Code. To recreate this in Vim, we must first install the [TypeScript Language Server](https://github.com/typescript-language-server/typescript-language-server). Now, with your cursor over an expression, running `lua vim.lsp.buf.hover()` will open a window like the one shown above with typing information.
 
@@ -119,7 +119,7 @@ nnoremap K <cmd>lua vim.lsp.buf.hover()<cr>
 
 ### Autocomplete
 
-![Autocomplete](images/vim/autocomplete.png)
+![Autocomplete](/images/vim/autocomplete.png)
 
 For minimal autocomplete functionality without any extra plugins, you can set the following in your `init.vim`.
 ```
@@ -147,7 +147,7 @@ autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
 
 ### Code Actions
 
-![Code Actions](images/vim/code-actions.png)
+![Code Actions](/images/vim/code-actions.png)
 Code actions, such as organising imports, can be viewed and executed with `:Telescope lsp_code_actions`.
 To place the Telescope window next to the cursor, I use the following command in my `init.vim`:
 ```

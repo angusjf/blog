@@ -1,6 +1,6 @@
 module Page.Index exposing (Content(..), Data, Model, Msg, data, head, page)
 
-import Components exposing (date, viewCard, viewDescription, viewLinks)
+import Components exposing (date, viewCard, viewDescription, viewHomepage, viewLinks)
 import DataSource exposing (DataSource)
 import DataSource.File
 import DataSource.Glob as Glob
@@ -157,11 +157,13 @@ view :
 view _ _ static =
     { title = "Angus Findlay"
     , body =
-        me
-            :: (static.data
-                    |> List.filter visible
-                    |> List.map viewContent
-               )
+        [ viewHomepage <|
+            me
+                :: (static.data
+                        |> List.filter visible
+                        |> List.map viewContent
+                   )
+        ]
     }
 
 

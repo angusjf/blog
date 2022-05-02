@@ -11,7 +11,6 @@ import Pages.PageUrl exposing (PageUrl)
 import Path exposing (Path)
 import Route exposing (Route)
 import SharedTemplate exposing (SharedTemplate)
-import Tailwind.Utilities as Tw
 import View exposing (View)
 
 

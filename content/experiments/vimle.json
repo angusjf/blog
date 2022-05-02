@@ -8,6 +8,11 @@
             "icon": "fas fa-code"
         },
         {
+            "href": "/apps/reverse-vimle.html",
+            "label": "/reverse-vimle",
+            "icon": "fas fa-code"
+        },
+        {
             "href": "https://github.com/angusjf/vimle",
             "label": "angusjf/vimle",
             "icon": "fab fa-github"

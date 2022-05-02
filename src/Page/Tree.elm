@@ -11,7 +11,6 @@ import Page.Index exposing (..)
 import Pages.PageUrl exposing (PageUrl)
 import Pages.Url
 import Shared
-import Tailwind.Utilities as Tw
 import Tree exposing (Tree(..))
 import View exposing (View)
 
@@ -49,8 +48,8 @@ view :
 view _ _ static =
     { title = "angusjf"
     , body =
-        [ div [ css [ Tw.w_full, Tw.h_full, Tw.px_6, Tw.py_1, Tw.rounded_md, Tw.shadow_2xl, Tw.bg_white ] ]
-            [ pre [ css [ Tw.font_mono ] ] <| Markdown.viewMarkdown <| Tree.render (toTree static.data) ]
+        [ div []
+            [ pre [] <| Markdown.viewMarkdown <| Tree.render (toTree static.data) ]
         ]
     }
 
@@ -70,7 +69,7 @@ toTree dat =
                                     Just <|
                                         Link
                                             { label = metadata.title
-                                            , url = url
+                                            , url = "/" ++ url
                                             }
 
                                 Experiment _ ->
