@@ -30,7 +30,10 @@ To extend vim with plugins, it's recommended you use a package manager. There ar
 
 ### Packer
 
-To install `Packer`, clone the repo into your `packpath` as described in the docs then run `:PackerCompile` followed by `:PackerInstall`.
+To install `Packer`:
+- Git clone the repo into your `packpath` (as described in the docs)
+- add `lua require('plugins')` to your vimrc (~/.config/nvim/init.vim)
+- restart nvim and run `:PackerCompile` followed by `:PackerInstall`.
 
 Once installed, packer allows you to write a plugin specification in `~/.config/nvim/lua/plugins.lua`, and install the specified plugins with the above commands.
 

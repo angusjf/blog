@@ -2,7 +2,7 @@ module Components exposing (..)
 
 import Css exposing (color)
 import Date
-import Html.Styled exposing (a, div, h1, h2, i, img, p, span, text)
+import Html.Styled exposing (a, code, div, h1, h2, i, img, p, span, text)
 import Html.Styled.Attributes as Attrs exposing (class, href, src)
 
 
@@ -44,7 +44,7 @@ viewDescription x =
 
 
 header =
-    div []
+    div [ class "link-back" ]
         [ link { url = "/", label = [ text "angusjf" ] } ]
 
 
@@ -67,13 +67,15 @@ roundedImage { url, alt } =
 
 
 image { url, alt } =
-    img
-        [ src url
-        , Attrs.alt alt
+    div [ class "image-container" ]
+        [ img
+            [ src url
+            , Attrs.alt alt
 
-        --, Attr.title title TODO
+            --, Attr.title title TODO
+            ]
+            []
         ]
-        []
 
 
 date x =
@@ -89,4 +91,4 @@ viewLinkWithIcon { label, url, icon } =
 
 
 codeSpan t =
-    span [] [ text t ]
+    code [] [ text t ]
